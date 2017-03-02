@@ -1,8 +1,262 @@
 <div [class.dark-theme]="isDarkTheme">
-<md-grid-list cols="2">
-  <md-grid-tile>1</md-grid-tile>
-  <md-grid-tile>2</md-grid-tile>
-  <md-grid-tile>3</md-grid-tile>
-  <md-grid-tile>4</md-grid-tile>
-</md-grid-list>
+
+  <md-toolbar color="primary">
+    <span>E-Learning Platform</span>
+    <span class="spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+<md-menu #menu="mdMenu">
+  <button (click)="view='Register'" md-menu-item>
+    <span>Register</span>
+  </button>
+  <button (click)="view='Forgot Password'" md-menu-item>
+    <span>Forgot Password</span>
+  </button>
+  <button (click)="view='Login'" md-menu-item>
+    <span>Login</span>
+  </button>
+  <button (click)="view='Dashboard'" md-menu-item>
+    <span>Dashboard</span>
+  </button>
+  <button (click)="view='Create Academy'" md-menu-item>
+    <span>Create Academy</span>
+  </button>
+  <button (click)="view='Create Course'" md-menu-item>
+    <span>Create Course</span>
+  </button>
+  <button (click)="view='Academy Settings'" md-menu-item>
+    <span>Academy Settings</span>
+  </button>
+</md-menu>
+  </md-toolbar>
+
+<md-card *ngIf="view=='Register'">
+   <md-card-subtitle>Auth</md-card-subtitle>
+   <md-card-title>Register</md-card-title>   
+   <md-card-content>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="First Name" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="Last Name" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput type="email" placeholder="Email" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput type="password" placeholder="Password" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput type="password" placeholder="Confirm Password" value="">
+    </md-input-container>
+   </p>
+
+   <div class="button-row">
+    <button (click)="view='Login'" md-raised-button>Register</button>
+  </div>
+
+   </md-card-content>
+</md-card>
+
+<md-card *ngIf="view=='Forgot Password'">
+   <md-card-subtitle>Auth</md-card-subtitle>
+   <md-card-title>Forgot Password</md-card-title>   
+   <md-card-content>
+   <p>
+    <md-input-container>
+      <input mdInput type="email" placeholder="Email" value="">
+    </md-input-container>
+   </p>
+   <p><a href="javascript:void(0)" (click)="view='Login'">Login</a></p>
+   <div class="button-row">
+    <button (click)="view='Login'" md-raised-button>Submit</button>
+  </div>
+   </md-card-content>
+</md-card>
+
+<md-card *ngIf="view=='Login'">
+   <md-card-subtitle>Auth</md-card-subtitle>
+   <md-card-title>Login</md-card-title>   
+   <md-card-content>
+   <p>
+    <md-input-container>
+      <input mdInput type="email" placeholder="Email" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput type="password" placeholder="Password" value="">
+    </md-input-container>
+   </p>
+   <p><a href="javascript:void(0)" (click)="view='Forgot Password'">Forgot Password</a></p>
+   <div class="button-row">
+    <button (click)="view='Dashboard'" md-raised-button>Login</button>
+  </div>
+   </md-card-content>
+</md-card>
+
+<div *ngIf="view=='Dashboard'">
+
+<md-toolbar>My Academies</md-toolbar>
+
+    <hr>
+
+    <md-card>
+      <md-card-subtitle>Academy</md-card-subtitle>
+      <md-card-title><a (click)="view='Course Listing'" href="javascript:void(0)">Academy 1</a>
+      <button (click)="view='Academy Settings'" md-mini-fab><md-icon>settings</md-icon></button></md-card-title>   
+      <md-card-content>
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-card-content>
+    </md-card>
+
+    <hr>
+
+    <md-card>
+      <md-card-subtitle>Academy</md-card-subtitle>
+      <md-card-title><a (click)="view='Course Listing'" href="javascript:void(0)">Academy 2</a>
+      <button (click)="view='Academy Settings'" md-mini-fab><md-icon>settings</md-icon></button></md-card-title>   
+      <md-card-content>
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-card-content>
+    </md-card>
+    
+    <hr>
+
+    <div class="button-row">
+      <button (click)="view='Create Academy'" md-raised-button><md-icon>create_new_folder</md-icon>&nbsp;Create New Academy</button>
+    </div>
+</div>
+
+<md-card *ngIf="view=='Create Academy'">
+   <md-card-subtitle>Home</md-card-subtitle>
+   <md-card-title>Create Academy</md-card-title>   
+   <md-card-content>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="Academy Name" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="Academy URL" value="">
+    </md-input-container>
+   </p>
+   <div class="button-row">
+    <button (click)="view='Dashboard'" md-raised-button>Create</button>
+  </div>
+   </md-card-content>
+</md-card>
+
+<md-card *ngIf="view=='Create Course'">
+   <md-card-subtitle>Academy</md-card-subtitle>
+   <md-card-title>Create Course</md-card-title>   
+   <md-card-content>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="Course Title" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <input mdInput placeholder="Course Price" value="">
+    </md-input-container>
+   </p>
+   <p>
+    <md-input-container>
+      <textarea mdInput placeholder="Course content"></textarea>
+    </md-input-container>
+   </p>
+
+   <div class="button-row">
+    <button (click)="view='Dashboard'" md-raised-button>Create Course</button>
+  </div>
+
+   </md-card-content>
+</md-card>
+
+<div *ngIf="view=='Course Listing'">
+   <md-toolbar>Academy Courses</md-toolbar>
+
+    <hr>
+
+    <md-card>
+      <md-card-subtitle>Academy</md-card-subtitle>
+      <md-card-title>Course 2</md-card-title>   
+      <md-card-content>
+      </md-card-content>
+    </md-card>
+
+    <hr>
+
+    <md-card>
+      <md-card-subtitle>Academy</md-card-subtitle>
+      <md-card-title>Course 2</md-card-title>   
+      <md-card-content>
+      </md-card-content>
+    </md-card>
+    
+    <hr>
+
+    <div class="button-row">
+      <button (click)="view='Create Course'" md-raised-button><md-icon>create_new_folder</md-icon>&nbsp;Create New Course</button>
+    </div>
+</div>
+
+<md-card *ngIf="view=='Academy Settings'">
+   <md-card-subtitle>Academy</md-card-subtitle>
+   <md-card-title>Academy Settings</md-card-title>   
+   <md-card-content>
+    <md-tab-group>
+      <md-tab label="General Settings">
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Billing Settings">
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Members"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Subscriptions"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Usage Reports"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Learner Reports"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+      <md-tab label="Social Promos"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p></md-tab>
+      <md-tab label="Marketing"><p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      </md-tab>
+    </md-tab-group>
+   </md-card-content>
+</md-card>
+
 </div>

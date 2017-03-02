@@ -10,45 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var material_1 = require("@angular/material");
 var AppComponent = (function () {
-    function AppComponent(dialog, vcr) {
-        this.dialog = dialog;
-        this.vcr = vcr;
-        this.dogs = [
-            { rows: 2, name: "Mal", human: "Jeremy", age: 5 },
-            { rows: 1, name: "Molly", human: "David", age: 5 },
-            { rows: 1, name: "Sophie", human: "Alex", age: 8 },
-            { rows: 2, name: "Taz", human: "Joey", age: '11 weeks' },
-            { rows: 1, name: "Kobe", human: "Igor", age: 5 },
-            { rows: 2, name: "Porter", human: "Kara", age: 3 },
-            { rows: 1, name: "Stephen", human: "Stephen", age: 8 },
-            { rows: 1, name: "Cinny", human: "Jules", age: 3 },
-            { rows: 1, name: "Hermes", human: "Kara", age: 3 },
-        ];
-        this.currentDog = {};
-        this.isDarkTheme = false;
+    function AppComponent() {
+        this.view = 'Register';
     }
-    AppComponent.prototype.openDialog = function () {
-        var config = new material_1.MdDialogConfig();
-        config.viewContainerRef = this.vcr;
-    };
-    AppComponent.prototype.showDog = function (dog) {
-        this.currentDog = dog;
-        this.sidenav.open();
-    };
     return AppComponent;
 }());
-__decorate([
-    core_1.ViewChild('sidenav'),
-    __metadata("design:type", material_1.MdSidenav)
-], AppComponent.prototype, "sidenav", void 0);
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: 'http://localhost:1337/app/views/index.ejs'
+        templateUrl: 'http://localhost:1337/app/views/index.ejs',
+        encapsulation: core_1.ViewEncapsulation.None
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog, core_1.ViewContainerRef])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
